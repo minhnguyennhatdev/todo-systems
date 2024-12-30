@@ -7,7 +7,9 @@ services:
         ports:
             - "6379:6379"
         command: 
-            - redis-server --appendonly yes --requirepass $REDIS_PASSWORD
+            - /bin/sh
+            - -c
+            - redis-server --requirepass "$${REDIS_PASSWORD:?REDIS_PASSWORD variable is not set}"
 volumes:
     cache:
         driver: local
