@@ -9,7 +9,7 @@ services:
         command: 
             - /bin/sh
             - -c
-            - redis-server --requirepass "$${REDIS_PASSWORD:?REDIS_PASSWORD variable is not set}"
+            - redis-server --requirepass "${REDIS_PASSWORD}"
 volumes:
     cache:
         driver: local
